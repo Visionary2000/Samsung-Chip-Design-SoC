@@ -18,3 +18,12 @@ There is a clear distinction between macros and IPs. Macros are digital blocks, 
 To build a chip, one needs to interact with the foundry (files which the foundry gives us). We communicate with the foundry with those files.
 
 ![Image Alt](https://github.com/Visionary2000/Samsung-Chip-Design-SoC/blob/main/Macros%20and%20Foundry%20IPs.JPG?raw=true)
+
+
+### Introduction to RISC-V
+RISC-V Instruction Set Architecture (ISA) is a language of the computer, used to talk with the computers. 
+Layout is the interior of a chip. If we want to run a particular C program on a particular layout, we need to pass that information to the hardware in certain terms. To do so, the C program is first complied to its assembly program language, which is then converted to the machine language (binary language) program. The bits in binary language, then gets executed in the layout, and you get the required output. 
+
+This conversion cannot happen directly. It needs a certain interface, which is the hardware description language (HDL). RISC-V Architecture can be thought of as specifications, and these specifications gets implemented by the RTL. There is a standard RTL2GDS flow between the RTL and the layout.
+
+![Image](https://github.com/user-attachments/assets/668a648d-f32a-415b-a534-96b387847430)
