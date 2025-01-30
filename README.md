@@ -44,3 +44,18 @@ The **Assembler** converts these inputs (instructions) to the respective binary 
 The instructions (output) of compiler actually acts as an abstract interface between the C language and the hardware, and this abstract interface is called as Instruction Set Architecture (ISA/acrchitecture of the computer). There is another interface between the instructions and the hardware, which is the HDL, as the hardware only understands 0s and 1s. The output of the assembler (binary code) gets implemented by am RTL, which then gets synthesized into the netlist (the instructions are written in the form of AND, OR, NOT gates), and is then physically implemented into the hardware.
 
 ![Image](https://github.com/user-attachments/assets/818a8404-f27c-422b-888c-d9acf73eb9be)
+
+
+## Day 1: Section 2: SoC Design and OpenLANE
+### Introduction to All Components of Open-Source Digital ASIC Design
+ASIC - Application Specific Integrated Circuits.
+
+Designing Digital ASIC require several elements, which needs to be present. These are:
+
+**RTL IPs**
+
+**Electronic Design Application (EDA) Tools**
+
+**Process Design Kit (PDK) Data:** PDK is the interface between the FAB and the designers. The PDK contains very sensitive information. It has information on the successful implementation of ASIC.
+
+A flow is a piece of software which glues different tools together.
