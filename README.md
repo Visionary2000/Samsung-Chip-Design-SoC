@@ -59,3 +59,16 @@ Designing Digital ASIC require several elements, which needs to be present. Thes
 **Process Design Kit (PDK) Data:** PDK is the interface between the FAB and the designers. The PDK contains very sensitive information. It has information on the successful implementation of ASIC.
 
 A flow is a piece of software which glues different tools together.
+
+### Simplified RTL2GDS Flow
+The major steps involved in RTL to GDS conversion are:
+
+1. **Synthesis:** Converts RTL to a circuit out of components from the standard cell library (SCL). The standard cells have a regular layout. Each has different views/models (electrical, HDL, SPICE, et.c)
+2. **Floor Planning/Power Planning:** In Chip Floor-Planning, the chip die is partitioned between different system building blocks and place the I/O pads. In Macro Floor-Planning, the dimensions, pin locations, and rows are defined, which will be used in the Placement and Grounding steps. In Power-Planning, the power network is constructed. Typically, a chip is powered by VDD and Ground pins. The power pins are connected to the components through several vertical and horizontal metal straps, and these parallel structures help to reduce the resistance.
+
+![Image](https://github.com/user-attachments/assets/13b9af66-db7f-4d3f-b438-8bea0993cd7a)
+
+3. **Placement:** During placement, the cells are placed on the floorplan rows, aligned with the sites. Placement is done in 2 ways - global and detailed. In global placement, it tries to find optimal placement of the cells. Such positions are not necessarily legal, thus cells may overlap. In detailed placement, positions obtained from global placements are slightly altered, to become legal.
+4. **Clock Tree Synthesis:** Before routing the signals, we need to route the clock, by creating a clock distribution network, and deliver the clock to all clock cells (like Flip-Flops). The clocking network looks like a tree. The clock tree is in size to deliver the clock to all things in a good shape with minimum skew and minimum latency. Clock skew means the arrival of the clock at different components at different times.
+5. **Routing:** After routing the clock, comes signal routing. This is implementation of the interconnect using the available metal layers. The router uses the available metal layers as defined by the PDK.
+6. **Sign Off:** Once routing is over, the final layout can be constructed, which undergoes verifications. This includes Design Rules Checking (DRC), where we check if the final layout follows all design rules, and the Layout vs Schematic (LVS), that makes sure that the final layout matches the gate-level netlist that we started with. This is physical verification. Timing verification is done through Static Timing Analysis (STA), to make sure that all timing constraints are met, and the circuit will run at the designated clock frequency.
